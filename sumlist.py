@@ -9,4 +9,7 @@ def sum_list(lista):
         return sum
 
 lista = [1, 2, 3]
-print('il valore della somma è {}'.format(sum_list(lista)))
+#print('il valore della somma è {}'.format(sum_list(lista)))
+
+a = sum_list(lista)
+print('{}'.format(a))
