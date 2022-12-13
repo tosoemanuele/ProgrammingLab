@@ -6,5 +6,10 @@ def sum_csv(file_name):
         if elementi[0]!='Date':
             numero = float(elementi[1])
             valori.append(numero)
-    return sum(valori)
+    if len(valori) == 0:
+        return None
+    else:
+        return sum(valori)    
 
+a = sum_csv('shampoo_sales.csv')
+print('{}'.format(a))
