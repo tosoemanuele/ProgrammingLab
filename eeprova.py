@@ -127,7 +127,7 @@ def detect_similar_monthly_variations(time_series, years):
         raise ExamException('years non è una lista')
     if not len(years)==2:
         raise ExamException('non ho due valori di years da valutare')
-    if not isinstance(years[0],int) and not isinstance(years[1],int):
+    if not isinstance(years[0],int) or not isinstance(years[1],int):
         try:
             years[0] = int(years[0])
             years[1] = int(years[1])
@@ -176,9 +176,10 @@ def detect_similar_monthly_variations(time_series, years):
             
     return variazione
 
-time_series_file = CSVTimeSeriesFile(name = 'data2.csv')
+
+time_series_file = CSVTimeSeriesFile(name = 'data.csv')
 time_series = time_series_file.get_data()
 
-a = detect_similar_monthly_variations(time_series,[1949,1950])
+a = detect_similar_monthly_variations(time_series,[1960,1959])
 
 print(a)

@@ -1,7 +1,9 @@
 class ExamException(Exception):
     pass
 
+
 class CSVFile():
+    
     def __init__(self, name):
         self.name = name
         
@@ -40,6 +42,7 @@ class CSVFile():
         file.close()
         #questa get_data restituisce una lista di liste contenenti in posizione 0 la data e in posizione 1 il valore, entrambi sotto forma di stringa.
         return coppia_valori 
+
 
 class CSVTimeSeriesFile(CSVFile):
     def __init__(self,name):
@@ -107,7 +110,7 @@ def test_years(years):
         raise ExamException('years non è una lista')
     if not len(years)==2:
         raise ExamException('non ho due valori di years da valutare')
-    if not isinstance(years[0],int) and not isinstance(years[1],int):
+    if not isinstance(years[0],int) or not isinstance(years[1],int):
         try:
             years[0] = int(years[0])
             years[1] = int(years[1])
@@ -122,6 +125,7 @@ def test_years(years):
     if not years[0] == years[1] - 1:
         raise ExamException('i valori di years non sono consecutivi')
 
+
 def twelve_months(list):
     #a partire dai valori che ho li metto in una lista contenente 12 valori, uno per mese
     twelve = [None,None,None,None,None,None,None,None,None,None,None,None]
@@ -131,6 +135,7 @@ def twelve_months(list):
                 twelve[j]=list[i][1]
     return twelve
 
+
 def diff_months(values):
     difference = []
     for i in range(11):
@@ -139,6 +144,7 @@ def diff_months(values):
         else:
             difference.append(None)
     return difference
+
 
 def detect_similar_monthly_variations(time_series, years):
     #time series mi viene passata già clean, devo verificare years
