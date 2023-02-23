@@ -40,7 +40,7 @@ class CSVFile():
         start-=1    
         for i,line in enumerate(file):
             if i in range(start, end):
-                
+                print(line)
                 tmp = []
                 elementi = line.split(',')
                 for item in elementi:
@@ -76,5 +76,4 @@ class NumericalCSVFile(CSVFile):
             if len(numerical_row) == len(string_row):
                 numerical_data.append(numerical_row)
         return numerical_data
-
 
