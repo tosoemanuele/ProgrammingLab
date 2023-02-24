@@ -167,7 +167,7 @@ def detect_similar_monthly_variations(time_series, years):
             variazione.append(None)
     for i in range(11):
         if variazione[i] != None:
-            if variazione[i]<=2 and variazione[i]>=-2:
+            if variazione[i] in range(-2,3):
                 variazione[i] = True
             else:
                 variazione[i] = False
@@ -180,6 +180,6 @@ def detect_similar_monthly_variations(time_series, years):
 time_series_file = CSVTimeSeriesFile(name = 'data.csv')
 time_series = time_series_file.get_data()
 
-a = detect_similar_monthly_variations(time_series,[1960,1959])
+a = detect_similar_monthly_variations(time_series,[1949,1950])
 
 print(a)
